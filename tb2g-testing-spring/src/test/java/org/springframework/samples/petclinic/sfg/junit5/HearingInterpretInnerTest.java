@@ -1,17 +1,22 @@
-package org.springframework.samples.petclinic.junit5;
+package org.springframework.samples.petclinic.sfg.junit5;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.samples.petclinic.sfg.HearingInterpret;
 import org.springframework.samples.petclinic.sfg.LaurelWorldProducer;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@ActiveProfiles("inner-class")
 @SpringJUnitConfig(classes = {HearingInterpretInnerTest.TestConfig.class})
 class HearingInterpretInnerTest {
+
+    @Profile("inner-class")
     @Configuration
     static class TestConfig {
 
